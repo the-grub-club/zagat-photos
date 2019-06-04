@@ -1,5 +1,5 @@
 /* eslint-disable no-undef */
-// import styled from 'styled-components';
+import styled from 'styled-components';
 
 export const ModalContainer = styled.div`
   @keyframes zoomIn {

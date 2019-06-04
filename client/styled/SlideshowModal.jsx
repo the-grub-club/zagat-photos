@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
-// import styled from 'styled-components';
-// import { zoomOut } from './Keyframes';
+import styled from 'styled-components';
+import { zoomOut } from './Keyframes';
 
 export const SlideshowViewIndex = styled.span`
   font: 15px/24px 'Calibre-Regular', sans-serif;

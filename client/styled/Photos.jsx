@@ -1,5 +1,5 @@
 /* eslint-disable no-undef */
-// import styled from 'styled-components';
+import styled from 'styled-components';
 
 export const PhotosContainer = styled.div`
   height: 400px;

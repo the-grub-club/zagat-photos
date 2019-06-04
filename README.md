@@ -37,3 +37,12 @@ From within the root directory:
 npm install -g webpack
 npm install
 ```
+
+## API
+
+| Type 	  | Endpoint | Description |
+| ------------- | ------------- |
+| GET  | /api/restaurants/:id/photos | get one restaurant and photos |
+| POST  | /api/restaurants/:id/photos | post one restaurant and photos |
+| PUT | /api/restaurants/:id/photos | update one restaurant and photos |
+| DELETE | /api/restaurants/:id/photos | delete one restaurant and photos |
