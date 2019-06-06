@@ -13,3 +13,9 @@ logs
 
 # Compiled Dirs (http://nodejs.org/api/addons.html)
 public/bundle.js
+
+## csv file ##
+*.csv
+
+## package-lock ##
+package-lock.json
