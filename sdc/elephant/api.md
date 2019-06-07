@@ -63,33 +63,65 @@ Endpoint: `/restaurant/:id/photos`
 
 **Error Response**:
 
-- Code: 404 or 400
+- Code: 400
+- Code: 404
+
 
 ##### POST
 
-Endpoint: `/restaurant`
-
-- This request will store the updated picture that the user have put into the database.
-
-- Create a new source which updates the database and save the new data into the database.
-- If a POST request is successful, it will return a http request code of 201.
-- If an error occurs, it will respond with a 501(Requested HTTP operation not supported.)
-
-```
-{
-    id: "3dc952a0-88ab-11e9-ade2-65e9db81cbe7",
-    id_r : 10,
-    pic_id: 1,
-    resturant: Taco Bowls,
-    url: 'https://resizer.otstatic.com/v2/photos/large/24947294.jpg',
-    timestamp: '2019-08-08',
-    dislike: 0
-}
-```
-
-##### POST
+### Creating a restaurant record
 
 Endpoint: `/restaurant/:id/photos`
+
+**Success Response:**
+
+- Code: 201
+
+**Error Response:**
+
+- Code: 500
+
+### Creating a photo record
+
+Endpoint: `/photos/:id`
+
+**Success Response:**
+
+- Code: 201
+
+**Error Response:**
+
+- Code: 403
+- Code: 500
+
+
+##### PUT
+
+### Updating a restaurant record
+
+Endpoint: `/restaurant/:id/photos`
+
+**Success Response:**
+
+- Code: 201
+
+**Error Response:**
+
+- Code: 500
+
+### Updating a photo for a restaurant
+
+Endpoint: `/photos/:id`
+
+**Success Response:**
+
+- Code: 201
+
+**Error Response:**
+
+- Code: 403
+- Code: 500
+
 
 ##### DELETE
 
