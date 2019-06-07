@@ -19,7 +19,7 @@ Photos of restaurants
 
 ##### GET
 
-Endpoint: `/restaurant/:id`
+Endpoint: `/restaurants/:id`
 
 - This request will get a specific restaurant.
 
@@ -42,7 +42,7 @@ Endpoint: `/restaurant/:id`
 
 ##### GET
 
-Endpoint: `/restaurant/:id/photos`
+Endpoint: `/restaurants/:id/photos`
 
 - This request will get all the photos for a specific restaurant
 
@@ -71,7 +71,7 @@ Endpoint: `/restaurant/:id/photos`
 
 ### Creating a restaurant record
 
-Endpoint: `/restaurant/:id/photos`
+Endpoint: `/restaurants`
 
 **Success Response:**
 
@@ -83,7 +83,7 @@ Endpoint: `/restaurant/:id/photos`
 
 ### Creating a photo record
 
-Endpoint: `/photos/:id`
+Endpoint: `/photos`
 
 **Success Response:**
 
@@ -99,7 +99,7 @@ Endpoint: `/photos/:id`
 
 ### Updating a restaurant record
 
-Endpoint: `/restaurant/:id/photos`
+Endpoint: `/restaurants`
 
 **Success Response:**
 
@@ -111,7 +111,7 @@ Endpoint: `/restaurant/:id/photos`
 
 ### Updating a photo for a restaurant
 
-Endpoint: `/photos/:id`
+Endpoint: `/photos`
 
 **Success Response:**
 
