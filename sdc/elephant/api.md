@@ -2,13 +2,9 @@
 
 | Endpoint                 | Type   | Operation                                          |
 | ------------------------ | ------ | -------------------------------------------------- |
-| `/restaurants/:id`        | GET    | Get a specific restaurant                          |
 | `/restaurants/:id/photos` | GET    | Get photos for a specific restaurant               |
-| `/restaurants`        | POST   | Add a specific restaurant                          |
-| `/photos` | POST   | Add a new photo for a specific restaurant          |
-| `/restaurants`        | PUT    | Update an existing restaurant                      |
+| `/:id/photos` | POST   | Add a new photo for a specific restaurant          |
 | `/photos` | PUT    | Update an existing photo for a specific restaurant |
-| `/restaurants/:id`        | DELETE | Delete a specific restaurant                       |
 | `/photos/:id` | DELETE | Delete a photo for a specific restaurant           |
 
 ## **PHOTOS MODULE**
@@ -17,30 +13,7 @@ Photos of restaurants
 
 ### API
 
-##### GET
-
-Endpoint: `/restaurants/:id`
-
-- This request will get a specific restaurant.
-
-**Success Response**:
-
-- An object containing information about a restaurant with param `id`
-- Code: 200
-- Expected Content:
-
-```
-{
-  id: 1,
-  name: 'asgard'
-}
-```
-
-**Error Response**:
-
-- Code: 404 or 400
-
-##### GET
+## GET
 
 Endpoint: `/restaurants/:id/photos`
 
@@ -67,19 +40,7 @@ Endpoint: `/restaurants/:id/photos`
 - Code: 404
 
 
-##### POST
-
-### Creating a restaurant record
-
-Endpoint: `/restaurants`
-
-**Success Response:**
-
-- Code: 201
-
-**Error Response:**
-
-- Code: 500
+## POST
 
 ### Creating a photo record
 
@@ -95,19 +56,7 @@ Endpoint: `/photos`
 - Code: 500
 
 
-##### PUT
-
-### Updating a restaurant record
-
-Endpoint: `/restaurants`
-
-**Success Response:**
-
-- Code: 201
-
-**Error Response:**
-
-- Code: 500
+## PUT
 
 ### Updating a photo for a restaurant
 
@@ -123,19 +72,7 @@ Endpoint: `/photos`
 - Code: 500
 
 
-##### DELETE
-
-### Deleting a restaurant record
-
-Endpoint: `/restaurants/:id`
-
-**Success Response:**
-
-- Code: 201
-
-**Error Response:**
-
-- Code: 500
+## DELETE
 
 ### Deleting a photo record
 
