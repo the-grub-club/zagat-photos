@@ -3,7 +3,7 @@
 | Endpoint                 | Type   | Operation                                          |
 | ------------------------ | ------ | -------------------------------------------------- |
 | `/restaurants/:id/photos` | GET    | Get photos for a specific restaurant               |
-| `/:id/photos` | POST   | Add a new photo for a specific restaurant          |
+| `/photos/:id` | POST   | Add a new photo for a specific restaurant          |
 | `/photos` | PUT    | Update an existing photo for a specific restaurant |
 | `/photos/:id` | DELETE | Delete a photo for a specific restaurant           |
 
@@ -44,11 +44,20 @@ Endpoint: `/restaurants/:id/photos`
 
 ### Creating a photo record
 
-Endpoint: `/photos`
+Endpoint: `/photos/:id`
 
 **Success Response:**
 
 - Code: 201
+- Data Input: Object in application/json format
+
+```
+{
+  resId: 2,
+  inResId: 7,
+  imgUrl: 'http://wang-guan.com/o/20.jpg'
+}
+```
 
 **Error Response:**
 
