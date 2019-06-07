@@ -69,11 +69,20 @@ Endpoint: `/photos/:id`
 
 ### Updating a photo for a restaurant
 
-Endpoint: `/photos`
+Endpoint: `/photos/:id`
 
 **Success Response:**
 
 - Code: 201
+- Data Input: Object in application/json format
+
+```
+{
+  resId: 2,
+  inResId: 7,
+  imgUrl: 'http://wang-guan.com/o/20.jpg'
+}
+```
 
 **Error Response:**
 
