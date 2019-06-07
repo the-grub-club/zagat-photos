@@ -1,7 +1,7 @@
 const fs = require('fs');
 const casual = require('casual');
 
-let writer = fs.createWriteStream('out.csv', { flags: 'a' });
+let writer = fs.createWriteStream('out-photos.csv', { flags: 'a' });
 
 const gallery = ['http://wang-guan.com/o/01.jpg',
   'http://wang-guan.com/o/02.jpg',
@@ -24,17 +24,23 @@ const gallery = ['http://wang-guan.com/o/01.jpg',
   'http://wang-guan.com/o/19.jpg',
   'http://wang-guan.com/o/20.jpg'];
 
-const createOne = (res_id, img_id) => {
-  const restaurantName = casual.word;
-  const imgNum = casual.integer(from = 0, to = 19);
-  return `${res_id},${img_id},${restaurantName},${gallery[imgNum]}\n`;
+let counter = 0;
+
+writer.write("imgId,resId,inResId,imageUrl\n");
+
+const createPhotos = (res) => {
+  let outputStr = '';
+  let picNum = casual.integer(from = 8, to = 16);
+  for (let i = 0; i < picNum; i += 1) {
+    let imgNum = casual.integer(from = 0, to = 19);
+    outputStr += `${counter},${res},${i},${gallery[imgNum]}\n`;
+    counter += 1;
+  }
+  return outputStr;
 };
 
-writer.write("res_id,img_id,restaurantName,imageUrl\n");
-
-
 const createBulk = (start, end) => {
-  writer = fs.createWriteStream('out.csv', { flags: 'a' });
+  writer = fs.createWriteStream('out-photos.csv', { flags: 'a' });
 
   console.log('lets go');
 
@@ -47,11 +53,9 @@ const createBulk = (start, end) => {
         const temp = j / 1000000;
         console.log(`hits ${temp} million`);
       }
-      let picNum = casual.integer(from = 8, to = 16);
-      for (let i = 0; i < picNum; i += 1) {
-        const stringData = createOne(j, i);
-        ok = writer.write(stringData);
-      }
+
+      const stringData = createPhotos(j);
+      ok = writer.write(stringData);
       j += 1;
     } while (j < end && ok);
     if (j < end) {
@@ -60,4 +64,4 @@ const createBulk = (start, end) => {
   }
 };
 
-createBulk(0, 10000000);
+createBulk(0, 100);
