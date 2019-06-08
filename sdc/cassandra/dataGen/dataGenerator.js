@@ -1,8 +1,12 @@
 const fs = require('fs');
 const casual = require('casual');
-const uuidv1 = require('uuid/v1');
 
-let writer = fs.createWriteStream('out-small.csv', { flags: 'a' });
+const timerFn = require('timer-node');
+
+const timer = timerFn('test-timer');
+const custom = '%label: [%s secs %ms ms]';
+
+let writer = fs.createWriteStream('out-cas.csv', { flags: 'a' });
 
 const gallery = ['http://wang-guan.com/o/01.jpg',
   'http://wang-guan.com/o/02.jpg',
@@ -25,20 +29,29 @@ const gallery = ['http://wang-guan.com/o/01.jpg',
   'http://wang-guan.com/o/19.jpg',
   'http://wang-guan.com/o/20.jpg'];
 
-const createOne = (res_id, img_id) => {
-  const restaurantName = casual.word;
-  const imgNum = casual.integer(from = 0, to = 19);
-  return `${res_id},${res_id},${restaurantName},${gallery[imgNum]}\n`;
+let counter = 0;
+
+let amount = 10000000;
+
+writer.write('id,resId,inResId,resName,imgUrl\n');
+
+const createOne = (res) => {
+  let outputStr = '';
+  let picNum = casual.integer(from = 8, to = 16);
+  const resName = casual.word;
+  for (let i = 0; i < picNum; i += 1) {
+    let imgNum = casual.integer(from = 0, to = 19);
+    outputStr += `${counter},${res},${i},${resName},${gallery[imgNum]}\n`;
+    counter += 1;
+  }
+  return outputStr;
 };
 
-writer.write("id,res_id,img_id,restaurantName,imageUrl\n");
-
-
 const createBulk = (start, end) => {
-  writer = fs.createWriteStream('out-small.csv', { flags: 'a' });
+  writer = fs.createWriteStream('out-cas.csv', { flags: 'a' });
 
   console.log('lets go');
-
+  timer.start();
   let j = start;
   handler();
   function handler() {
@@ -48,11 +61,13 @@ const createBulk = (start, end) => {
         const temp = j / 1000000;
         console.log(`hits ${temp} million`);
       }
-      let picNum = casual.integer(from = 8, to = 16);
-      for (let i = 0; i < picNum; i += 1) {
-        const stringData = createOne(j, i);
-        ok = writer.write(stringData);
+      if (j === amount - 1) {
+        timer.stop();
+        console.log(timer.format(custom));
       }
+
+      const stringData = createOne(j);
+      ok = writer.write(stringData);
       j += 1;
     } while (j < end && ok);
     if (j < end) {
@@ -61,4 +76,4 @@ const createBulk = (start, end) => {
   }
 };
 
-createBulk(0, 100);
+createBulk(0, amount);

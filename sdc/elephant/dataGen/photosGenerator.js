@@ -25,8 +25,9 @@ const gallery = ['http://wang-guan.com/o/01.jpg',
   'http://wang-guan.com/o/20.jpg'];
 
 let counter = 0;
+let amount = 10000000;
 
-writer.write("imgId,resId,inResId,imageUrl\n");
+writer.write('imgId,resId,inResId,imgUrl\n');
 
 const createPhotos = (res) => {
   let outputStr = '';
@@ -64,4 +65,4 @@ const createBulk = (start, end) => {
   }
 };
 
-createBulk(0, 100);
+createBulk(0, amount);

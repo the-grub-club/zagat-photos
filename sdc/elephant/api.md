@@ -4,7 +4,7 @@
 | ------------------------ | ------ | -------------------------------------------------- |
 | `/restaurants/:id/photos` | GET    | Get photos for a specific restaurant               |
 | `/photos/:id` | POST   | Add a new photo for a specific restaurant          |
-| `/photos` | PUT    | Update an existing photo for a specific restaurant |
+| `/photos/:id` | PUT    | Update an existing photo for a specific restaurant |
 | `/photos/:id` | DELETE | Delete a photo for a specific restaurant           |
 
 ## **PHOTOS MODULE**
@@ -80,7 +80,7 @@ Endpoint: `/photos/:id`
 {
   resId: 2,
   inResId: 7,
-  imgUrl: 'http://wang-guan.com/o/20.jpg'
+  imgUrl: 'http://wang-guan.com o/20.jpg'
 }
 ```
 

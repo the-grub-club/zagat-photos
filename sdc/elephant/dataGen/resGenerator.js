@@ -3,12 +3,14 @@ const casual = require('casual');
 
 let writer = fs.createWriteStream('out-restaurants.csv', { flags: 'a' });
 
-const createRestaurant = (res_id) => {
-  const restaurantName = casual.word;
-  return `${res_id},${restaurantName}\n`;
+const createRestaurant = (resId) => {
+  const resName = casual.word;
+  return `${resId},${resName}\n`;
 };
 
-writer.write("res_id,restaurantName\n");
+writer.write('id,resName\n');
+
+let amount = 10000000;
 
 const createBulk = (start, end) => {
   writer = fs.createWriteStream('out-restaurants.csv', { flags: 'a' });
@@ -35,4 +37,4 @@ const createBulk = (start, end) => {
   }
 };
 
-createBulk(0, 100);
+createBulk(0, amount);
