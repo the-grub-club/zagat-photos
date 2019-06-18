@@ -12,7 +12,9 @@
     "seed-ele-ph": "node --max-old-space-size=8192 sdc/elephant/dataGen/photosGenerator.js",
     "seed-ele-res": "node --max-old-space-size=8192 sdc/elephant/dataGen/resGenerator.js",
     "seed-cassandra": "node --max-old-space-size=8192 sdc/cassandra/dataGen/dataGenerator.js",
-    "start": "node server/server.js"
+    "start": "node server/server.js",
+    "mass-start": "nodemon sdc/server/server.js",
+    "ksix": "k6 run script.js"
   },
   "lint-staged": {
     "*.js": "eslint",
@@ -62,6 +64,8 @@
     "express": "^4.16.4",
     "faker": "^4.1.0",
     "mongoose": "^5.5.8",
+    "newrelic": "^5.9.1",
+    "nodemon": "^1.19.1",
     "pg": "^7.11.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",

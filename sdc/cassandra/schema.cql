@@ -12,6 +12,7 @@ CREATE TABLE photos (
 );
 
 CREATE INDEX photos_idx ON restaurants_photos(photos);
+CREATE INDEX resname_idx ON restaurants_photos(photos);
 
 COPY photos(id,resId,inResId,resName,imgUrl)
 FROM '/Users/wangguan/Documents/code/hackreactor/grub/zagat-photos-service/sdc/cassandra/dataGen/out-cas.csv' WITH HEADER = TRUE; 

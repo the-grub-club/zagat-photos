@@ -18,7 +18,7 @@ class Gallery extends React.Component {
     super(props);
 
     this.state = {
-      id: 1,
+      resid: 888,
       restaurantName: '',
       imageUrls: [],
       showModal: false,
@@ -37,15 +37,17 @@ class Gallery extends React.Component {
   }
 
   componentDidMount() {
-    const id = window.location.pathname.substring(13);
+    const resid = window.location.pathname.substring(13);
     this.setState({
-      id,
+      resid,
     }, this.getPhotos);
   }
 
   getPhotos() {
-    const { id } = this.state;
-    fetch(`/api/restaurants/${id}/photos`, {
+    ///api/restaurants/:id/photos
+    // const { resid } = this.state; wayne commented this line
+    let resid = Math.floor(Math.random() * 1000000);
+    fetch(`http://localhost:3010/api/restaurants/${resid}/photos`, {
       method: 'GET',
       mode: 'cors',
       headers: {
@@ -54,9 +56,14 @@ class Gallery extends React.Component {
     })
       .then(data => (data.json()))
       .then((data) => {
+        console.log('data-', data);
+        let imgArr = [];
+        data.forEach((each) => {
+          imgArr.push(each.imgurl);
+        });
         this.setState({
-          restaurantName: data.name,
-          imageUrls: data.photos,
+          resid: data.resid,
+          imageUrls: imgArr,
         });
       });
   }

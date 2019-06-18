@@ -17,8 +17,15 @@ CREATE TABLE photos (
   FOREIGN KEY (resId) REFERENCES restaurants (id) ON DELETE CASCADE
 );
 
-COPY restaurants(id,restaurantName) 
-FROM '/Users/wangguan/Documents/code/hackreactor/grub/zagat-photos-service/sdc/elephant/dataGen/out-restaurants.csv' DELIMITER ',' CSV HEADER;
+CREATE INDEX resid_idx ON photos(resid);
 
 COPY photos(imgId,resId,inResId,imgUrl) 
-FROM '/Users/wangguan/Documents/code/hackreactor/grub/zagat-photos-service/sdc/elephant/dataGen/out-photos.csv' DELIMITER ',' CSV HEADER;
+FROM '../../../../home/ec2-user/out-photos.csv' DELIMITER ',' CSV HEADER;
+
+-- COPY restaurants(id,restaurantName) 
+-- FROM '/Users/wangguan/Documents/code/hackreactor/grub/zagat-photos-service/sdc/elephant/dataGen/out-restaurants.csv' DELIMITER ',' CSV HEADER;
+
+-- COPY photos(imgId,resId,inResId,imgUrl) 
+-- FROM '/Users/wangguan/Documents/code/hackreactor/grub/zagat-photos-service/sdc/elephant/dataGen/out-photos.csv' DELIMITER ',' CSV HEADER;
+
+

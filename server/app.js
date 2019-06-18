@@ -20,7 +20,7 @@ app.get('/restaurants/:id', (req, res) => {
 // get all restaurants
 app.get('/api/restaurants', (req, res) => {
   db.getRestaurants((err, result) => {
-    if (err || !result) {
+    if (err | !result) {
       res.status(404).send();
     } else {
       res.set('Cache-Control', 'public, max-age=31557600');
