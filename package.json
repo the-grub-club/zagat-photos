@@ -70,7 +70,7 @@
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "sequelize": "^5.8.7",
+    "sequelize": "^5.15.1",
     "styled-components": "^4.2.0",
     "timer-node": "^1.0.4",
     "uuid": "^3.3.2"
