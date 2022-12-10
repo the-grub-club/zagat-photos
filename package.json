@@ -61,7 +61,7 @@
     "casual": "^1.6.2",
     "cors": "^2.8.5",
     "csv-write-stream": "^2.0.0",
-    "express": "^4.16.4",
+    "express": "^4.17.3",
     "faker": "^4.1.0",
     "mongoose": "^5.5.8",
     "newrelic": "^5.9.1",
